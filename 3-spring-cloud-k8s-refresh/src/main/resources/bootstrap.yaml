@@ -3,18 +3,14 @@ spring:
     name: spring-cloud-k8s-refresh
   cloud:
     kubernetes:
+      config:
+        enabled: true
+        enableApi: true
+        sources:
+          - name: ${spring.application.name}
       reload:
         enabled: true
         mode: event
         strategy: refresh
-        #period: 5000
         monitoring-config-maps: true
         monitoring-secrets: false
-      config:
-        enabled: true
-        #paths:
-        #  - /etc/config
-        enableApi: true
-        sources:
-        #  - name: other
-          - name: ${spring.application.name}

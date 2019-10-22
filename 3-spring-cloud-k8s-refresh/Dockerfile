@@ -14,7 +14,6 @@ FROM openjdk:11-jre
 
 # Create app directory, chgrp, and chmod
 ENV APP_HOME=/app
-RUN mkdir -p $APP_HOME/scripts
 RUN chgrp -R 0 $APP_HOME && chmod -R g=u $APP_HOME
 WORKDIR $APP_HOME
 
