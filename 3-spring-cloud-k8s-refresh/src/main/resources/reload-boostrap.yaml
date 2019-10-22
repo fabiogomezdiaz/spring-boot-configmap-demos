@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: reload-example
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        mode: event
+        strategy: refresh
+        #period: 5000
+        monitoring-config-maps: true
+        monitoring-secrets: false
+      config:
+        enabled: false
+        #paths:
+        #  - /etc/config
+        enableApi: true
+        sources:
+        #  - name: other
+          - name: ${spring.application.name}

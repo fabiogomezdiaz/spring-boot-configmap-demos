@@ -1,0 +1,52 @@
+---
+# ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: config3
+  name: spring-cloud-k8s-refresh
+data:
+  application.properties: |-
+    bean.message=Hello from OpenShift, Yet Again!
+---
+# Deployment
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: config3
+  name: spring-cloud-k8s-refresh
+  labels:    
+    app: "spring-cloud-k8s-refresh"
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: "spring-cloud-k8s-refresh"
+    spec:
+      containers:
+      - name: "spring-cloud-k8s-refresh"
+        image: "fabiogomezdiaz/spring-cloud-k8s-refresh:latest"
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 2
+          failureThreshold: 3
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
