@@ -6,7 +6,7 @@ Demos of different Spring Boot integrations with OpenShift ConfigMaps. The main 
 
   * [Pre-Requisites](#pre-requisites)
     + [Tools](#tools)
-    + [a. Create Projects](#a-create-projects)
+    + [Create Projects](#create-projects)
   * [Demo 1: Deploy Basic ConfigMap](#demo-1-deploy-basic-configmap)
     + [a. Demo 1 Project Structure](#a-demo-1-project-structure)
       - [i. Spring Boot Application Architecture](#i-spring-boot-application-architecture)
@@ -44,7 +44,7 @@ You will need the following tools to get the demos up and running:
   * We need `helm v3` to install the ConfigMap reloader.
   * Note: In a future iteration, I will try to remove the `helm` requirement.
 
-### a. Create Projects
+### Create Projects
 
 Each demo will take place in its own project. We will also need to create a separate `reloader` project for the ConfigMap reloader in demo 2. Here is a list of all the projects you will create:
 
