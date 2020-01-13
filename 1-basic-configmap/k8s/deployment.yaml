@@ -3,7 +3,6 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  namespace: config1
   name: basic-configmap
   labels:    
     app: "basic-configmap"
@@ -23,9 +22,9 @@ spec:
       - name: config-volume
         configMap:
           name: basic-configmap
-        items:
-        - key: application.properties
-          path: application.properties
+          items:
+          - key: application.properties
+            path: application.properties
       containers:
       - name: "basic-configmap"
         image: "fabiogomezdiaz/basic-configmap:latest"
