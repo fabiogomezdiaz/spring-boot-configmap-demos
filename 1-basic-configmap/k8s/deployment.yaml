@@ -6,6 +6,8 @@ metadata:
   name: basic-configmap
   labels:    
     app: "basic-configmap"
+  annotations:
+    reloader.stakater.com/auto: "true"
 spec:
   replicas: 1
   strategy:
