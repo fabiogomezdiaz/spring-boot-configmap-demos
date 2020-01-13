@@ -6,4 +6,4 @@ metadata:
   name: basic-configmap
 data:
   application.properties: |-
-    bean.message=Hello from OpenShift! Argo Tests again!
+    bean.message=Hello from OpenShift! Argo Tests again! 2
