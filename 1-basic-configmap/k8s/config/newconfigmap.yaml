@@ -1,9 +1,0 @@
----
-# ConfigMap
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: new-basic-configmap
-data:
-  application.properties: |-
-    bean.message=Hello from OpenShift! New ConfigMap
